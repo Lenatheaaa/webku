@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Masuk Web</title>
+	<link rel="stylesheet" type="text/css" href="loginn.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form onsubmit="loginUser(event)">
+					<label for="chk" aria-hidden="true">Masuk</label>
+					<input type="text" name="txt" placeholder="User name" required="">
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Masuk</button>
+				</form>
+			</div>
+	</div>
+	<script>
+  function loginUser(event) {
+    event.preventDefault(); // Mencegah reload
+
+    // Ambil nilai input (bisa ditambahkan validasi sesuai kebutuhan)
+    const username = document.querySelector('input[name="txt"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="pswd"]').value;
+
+    // Validasi sederhana (bisa ditambah verifikasi lebih lanjut)
+    if (username && email && password) {
+      localStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html";
+    } else {
+      alert("Harap isi semua data dengan benar!");
+    }
+  }
+</script>
+
+</body>
+</html>
